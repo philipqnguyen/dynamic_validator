@@ -1,5 +1,6 @@
 .dynamic-validator {
   position: relative;
+  display: inline;
 }
 
 .dynamic-validator img.validation-image {

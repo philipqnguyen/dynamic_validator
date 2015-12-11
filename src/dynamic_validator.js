@@ -1,11 +1,5 @@
 var dynamicValidator = (function ($) {
   var app = {
-    loadingImage: "<%= image_path 'fancybox_loading' %>",
-
-    successImage: "<%= image_path 'check_64' %>",
-
-    failImage: "<%= image_path 'red_x_small' %>",
-
     params: function () {
       var vars = [], hash;
       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -55,19 +49,26 @@ var dynamicValidator = (function ($) {
     runCheck: function (elementOptions) {
       var self = this;
       this.clearImage(elementOptions['selector']);
-      this.insertImage(elementOptions['selector'], self.loadingImage);
+      this.insertImage(elementOptions['selector'], self.options.loadingImage);
       $.ajax({
         method: 'GET',
         url: self.buildUrl(elementOptions)
       })
       .done(function (data) {
         self.clearImage(elementOptions['selector']);
-        self.insertImage(elementOptions['selector'], self.successImage);
-        $(elementOptions['selector']).trigger('dynamicValidator:true');
+        console.log(data.result)
+        if (data.result === true) {
+          self.insertImage(elementOptions['selector'], self.options.successImage);
+          $(elementOptions['selector']).trigger('dynamicValidator:true');
+        } else {
+          self.clearImage(elementOptions['selector']);
+          self.insertImage(elementOptions['selector'], self.options.failImage);
+          $(elementOptions['selector']).trigger('dynamicValidator:false');
+        }
       })
       .fail(function (data) {
         self.clearImage(elementOptions['selector']);
-        self.insertImage(elementOptions['selector'], self.failImage);
+        self.insertImage(elementOptions['selector'], self.options.failImage);
         $(elementOptions['selector']).trigger('dynamicValidator:false');
       });
     },
@@ -115,7 +116,10 @@ var dynamicValidator = (function ($) {
 
     options: {
       keyUpDelay: 1000,
-      selectorsAndPaths: []
+      selectorsAndPaths: [],
+      loadingImage: "images/fancybox_loading.gif",
+      successImage: "images/check_64.png",
+      failImage: "images/red_x_small.png"
     },
   };
 

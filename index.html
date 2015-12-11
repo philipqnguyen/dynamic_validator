@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Validator</title>
+    <link rel="stylesheet" type="text/css" href="dynamic_validator.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="dynamic_validator.js"></script>
+    <script>
+      $(document).ready(function () {
+        dynamicValidator.init(
+          {
+            keyUpDelay: 1000,
+            selectorsAndPaths: [
+              {
+                selector: '#username',
+                path: 'http://localhost:3000/username/',
+                valueName: 'username'
+              }
+            ]
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+  <h1>Example Form</h1>
+  <form>
+    <div>
+      <label class="dynamic-validator">
+        username
+        <input type="text" id="username">
+      </label>
+    </div>
+  </form>
+  </body>
+</html>
