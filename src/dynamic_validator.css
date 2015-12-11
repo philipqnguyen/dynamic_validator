@@ -1,0 +1,12 @@
+.dynamic-validator {
+  position: relative;
+}
+
+.dynamic-validator img.validation-image {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 101%;
+  bottom: 0;
+  right: 0;
+}
