@@ -2,11 +2,6 @@ require 'sinatra'
 require 'json'
 
 set :port, 3000
-set :public_folder, 'src'
-
-get '/' do
-  send_file 'index.html'
-end
 
 get '/username/?' do
   response['Access-Control-Allow-Origin'] = '*'

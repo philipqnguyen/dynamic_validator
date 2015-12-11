@@ -56,7 +56,6 @@ var dynamicValidator = (function ($) {
       })
       .done(function (data) {
         self.clearImage(elementOptions['selector']);
-        console.log(data.result)
         if (data.result === true) {
           self.insertImage(elementOptions['selector'], self.options.successImage);
           $(elementOptions['selector']).trigger('dynamicValidator:true');
@@ -117,9 +116,9 @@ var dynamicValidator = (function ($) {
     options: {
       keyUpDelay: 1000,
       selectorsAndPaths: [],
-      loadingImage: "images/fancybox_loading.gif",
-      successImage: "images/check_64.png",
-      failImage: "images/red_x_small.png"
+      loadingImage: "src/images/fancybox_loading.gif",
+      successImage: "src/images/check_64.png",
+      failImage: "src/images/red_x_small.png"
     },
   };
 

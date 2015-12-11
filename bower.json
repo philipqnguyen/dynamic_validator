@@ -1,0 +1,32 @@
+{
+  "name": "dynamicValidator",
+  "homepage": "https://github.com/philipqnguyen/dynamic_validator",
+  "authors": [
+    "Philip Q Nguyen"
+  ],
+  "description": "Dynamically validate user's input against a backend API as the user is typing.",
+  "main": "src/dynamic_validator.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "form",
+    "validation",
+    "dynamic",
+    "ajax"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "app.rb",
+    "Gemfile",
+    "index.html"
+  ],
+  "dependencies": {
+    "jquery": ">1.7"
+  }
+}
