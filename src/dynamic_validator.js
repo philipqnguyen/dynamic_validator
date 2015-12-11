@@ -21,7 +21,7 @@ var dynamicValidator = (function ($) {
     },
 
     buildQueries: function (elementOptions) {
-      var queries = elementOptions['getFromCurrentQueries'];
+      var queries = elementOptions['valueFromQueries'];
       var queryString = '';
       var query;
       for (var i = 0; i < queries.length; i++) {
@@ -93,19 +93,19 @@ var dynamicValidator = (function ($) {
       });
     },
 
-    parseSelectorsAndPaths: function () {
-      var selectorsAndPaths = this.options.selectorsAndPaths;
-      for (var i = 0; i < selectorsAndPaths.length; i++) {
-        var selectorAndPath = selectorsAndPaths[i];
+    parseInputSettings: function () {
+      var inputSettings = this.options.inputSettings;
+      for (var i = 0; i < inputSettings.length; i++) {
+        var inputSetting = inputSettings[i];
         var elementOptions = {
           valueName: 'Value',
-          getFromCurrentQueries: [],
+          valueFromQueries: [],
           appendQueries: '',
           path: '/',
           selector: '#selector'
         };
-        for (var key in selectorAndPath) {
-          elementOptions[key] = selectorAndPath[key];
+        for (var key in inputSetting) {
+          elementOptions[key] = inputSetting[key];
         }
         if ($(elementOptions['selector']).length > 0) {
           this.onKeyUp(elementOptions);
@@ -115,7 +115,7 @@ var dynamicValidator = (function ($) {
 
     options: {
       keyUpDelay: 1000,
-      selectorsAndPaths: [],
+      inputSettings: [],
       loadingImage: "src/images/fancybox_loading.gif",
       successImage: "src/images/check_64.png",
       failImage: "src/images/red_x_small.png"
@@ -130,7 +130,7 @@ var dynamicValidator = (function ($) {
       for (var key in options) {
         app.options[key] = options[key]
       }
-      app.parseSelectorsAndPaths();
+      app.parseInputSettings();
     }
   };
 }(jQuery));

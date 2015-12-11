@@ -9,7 +9,7 @@
 //
 // The object's selector is the input selector.
 //
-// The object's getFromCurrentQueries will grab the params
+// The object's valueFromQueries will grab the params
 // from the current url string and append to the end of the url
 // as a query string.
 //
@@ -27,17 +27,17 @@ $(document).ready(function () {
   dynamicValidator.init(
     {
       keyUpDelay: 1000,
-      selectorsAndPaths: [
+      inputSettings: [
         {
           selector: '#patient_dob',
           path: '/enrollments/dob_check/',
-          getFromCurrentQueries: ['signup_code'],
+          valueFromQueries: ['signup_code'],
           valueName: 'dob'
         },
         {
           selector: '#pharmacist_npi_number',
           path: '/invitations/npi_check/',
-          getFromCurrentQueries: ['signup_code'],
+          valueFromQueries: ['signup_code'],
           valueName: 'npi_number'
         }
       ]
