@@ -22,25 +22,3 @@
 //
 // There should be a corresponding route & controller that returns
 // true or false.
-
-$(document).ready(function () {
-  dynamicValidator.init(
-    {
-      keyUpDelay: 1000,
-      inputSettings: [
-        {
-          selector: '#patient_dob',
-          path: '/enrollments/dob_check/',
-          valueFromQueries: ['signup_code'],
-          valueName: 'dob'
-        },
-        {
-          selector: '#pharmacist_npi_number',
-          path: '/invitations/npi_check/',
-          valueFromQueries: ['signup_code'],
-          valueName: 'npi_number'
-        }
-      ]
-    }
-  );
-});

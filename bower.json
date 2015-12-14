@@ -24,6 +24,7 @@
     "tests",
     "app.rb",
     "Gemfile",
+    "Gemfile.lock",
     "index.html"
   ],
   "dependencies": {
